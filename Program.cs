@@ -90,7 +90,10 @@ Console.WriteLine($"There are {DkCount} characters in the Donkey Kong series");
 int DkMarioCount = characters.Where(c => c.Series.Contains("Donkey Kong") && c.Series.Contains("Mario")).Count();
 Console.WriteLine($"There are {DkMarioCount} characters that appear in Mario and Donkey Kong series");
 // which characters (name only) appear in Mario and Donkey Kong?
-foreach(String? name in characters.Where(c => c.Series.Contains("Donkey Kong") && c.Series.Contains("Mario")).Select(c => c.Name))
+foreach (String? name in characters.Where(c => c.Series.Contains("Donkey Kong") && c.Series.Contains("Mario")).Select(c => c.Name))
 {
-  Console.WriteLine($"\t{name}");
+    Console.WriteLine($"\t{name}");
 }
+// how many characters appear in Donkey Kong and not in Mario?
+int DkNotMarioCount = characters.Where(c => c.Series.Contains("Donkey Kong") && !c.Series.Contains("Mario")).Count();
+Console.WriteLine($"There are {DkNotMarioCount} characters that appear in Donkey Kong and Not in Mario series");
