@@ -246,5 +246,11 @@ Console.Clear();
 // }
 
 // [1.24a] How many characters have species 'Kremling'?
-int countKremling = characters.Count(c => c.Species == "Kremling");
-Console.WriteLine($"[1.24a] Characters with species 'Kremling': {countKremling}");
+// int countKremling = characters.Count(c => c.Species == "Kremling");
+// Console.WriteLine($"[1.24a] Characters with species 'Kremling': {countKremling}");
+
+// [1.24b] List characters with species 'Kremling' - return Name only.
+foreach (string? name in characters.Where(c => c.Species == "Kremling").Select(c => c.Name).OrderBy(n => n))
+{
+	Console.WriteLine($"[1.24b] {name}");
+}
