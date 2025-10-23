@@ -233,5 +233,14 @@ Console.Clear();
 // }
 
 // [1.23a] Is there any character whose alias is 'Winter Kong'?
-bool anyWinterKong = characters.Any(c => c.Alias != null && c.Alias.Contains("Winter Kong"));
-Console.WriteLine($"[1.23a] Any character with alias 'Winter Kong': {anyWinterKong}");
+// bool anyWinterKong = characters.Any(c => c.Alias != null && c.Alias.Contains("Winter Kong"));
+// Console.WriteLine($"[1.23a] Any character with alias 'Winter Kong': {anyWinterKong}");
+
+// [1.23b] List characters whose alias is 'Winter Kong' - return Name and Alias.
+foreach (var obj in characters
+	.Where(c => c.Alias != null && c.Alias.Contains("Winter Kong"))
+	.Select(c => new { c.Name, Alias = c.Alias })
+	.OrderBy(o => o.Name))
+{
+	Console.WriteLine($"[1.23b] {obj.Name} - Aliases: {string.Join(", ", obj.Alias)}");
+}
