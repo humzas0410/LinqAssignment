@@ -174,11 +174,15 @@ Console.Clear();
 // Console.WriteLine($"[1.21b] Characters with no alias (all series): {countNoAliasAll}");
 
 // [1.21c] List the character(s) with no alias (all series) - return name, alias (or 'None'), and series.
-foreach (var obj in characters
-	.Where(c => c.Alias == null || c.Alias.Count == 0)
-	.Select(c => new { c.Name, Alias = c.Alias, c.Series })
-	.OrderBy(o => o.Name))
-{
-	string aliases = (obj.Alias == null || obj.Alias.Count == 0) ? "None" : string.Join(", ", obj.Alias);
-	Console.WriteLine($"[1.21c] {obj.Name} - Aliases: {aliases} - Series: {string.Join(", ", obj.Series)}");
-}
+// foreach (var obj in characters
+//     .Where(c => c.Alias == null || c.Alias.Count == 0)
+//     .Select(c => new { c.Name, Alias = c.Alias, c.Series })
+//     .OrderBy(o => o.Name))
+// {
+//     string aliases = (obj.Alias == null || obj.Alias.Count == 0) ? "None" : string.Join(", ", obj.Alias);
+//     Console.WriteLine($"[1.21c] {obj.Name} - Aliases: {aliases} - Series: {string.Join(", ", obj.Series)}");
+// }
+
+// [1.21d] Are there any character(s) with no alias in the Mario series?
+bool anyNoAliasMario = characters.Where(c => c.Series.Contains("Mario")).Any(c => c.Alias == null || c.Alias.Count == 0);
+Console.WriteLine($"[1.21d] Any characters with no alias (Mario): {anyNoAliasMario}");
