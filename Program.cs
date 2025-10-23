@@ -220,5 +220,14 @@ Console.Clear();
 // }
 
 // [1.22a] Is there any character whose alias is 'Snowmad King'?
-bool anySnowmadKing = characters.Any(c => c.Alias != null && c.Alias.Contains("Snowmad King"));
-Console.WriteLine($"[1.22a] Any character with alias 'Snowmad King': {anySnowmadKing}");
+// bool anySnowmadKing = characters.Any(c => c.Alias != null && c.Alias.Contains("Snowmad King"));
+// Console.WriteLine($"[1.22a] Any character with alias 'Snowmad King': {anySnowmadKing}");
+
+// [1.22b] List characters whose alias is 'Snowmad King' - return Name and Alias.
+foreach (var obj in characters
+	.Where(c => c.Alias != null && c.Alias.Contains("Snowmad King"))
+	.Select(c => new { c.Name, Alias = c.Alias })
+	.OrderBy(o => o.Name))
+{
+	Console.WriteLine($"[1.22b] {obj.Name} - Aliases: {string.Join(", ", obj.Alias)}");
+}
