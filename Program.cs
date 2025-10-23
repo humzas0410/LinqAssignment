@@ -123,5 +123,14 @@ Console.Clear();
 // }
 
 // 1.19a - How many character(s) were created in 1981 (all series)?
-int countCreated1981All = characters.Count(c => c.YearCreated == 1981);
-Console.WriteLine($"Characters created in 1981 (all series): {countCreated1981All}");
+// int countCreated1981All = characters.Count(c => c.YearCreated == 1981);
+// Console.WriteLine($"Characters created in 1981 (all series): {countCreated1981All}");
+
+// 1.19b - List the character(s) created in 1981 (all series) - return character name and series only.
+foreach (var obj in characters
+	.Where(c => c.YearCreated == 1981)
+	.Select(c => new { c.Name, c.Series })
+	.OrderBy(c => c.Name))
+{
+	Console.WriteLine($"{obj.Name} - {string.Join(", ", obj.Series)}");
+}
