@@ -140,7 +140,11 @@ Console.Clear();
 // Console.WriteLine($"[1.19c] Count characters created in 1981 (Mario): {countCreated1981Mario}");
 
 // [1.19d] List the character(s) created in 1981 (Mario series) - return character name only.
-foreach (string? name in characters.Where(c => c.YearCreated == 1981 && c.Series.Contains("Mario")).Select(c => c.Name).OrderBy(n => n))
-{
-	Console.WriteLine($"[1.19d] {name}");
-}
+// foreach (string? name in characters.Where(c => c.YearCreated == 1981 && c.Series.Contains("Mario")).Select(c => c.Name).OrderBy(n => n))
+// {
+//     Console.WriteLine($"[1.19d] {name}");
+// }
+
+// [1.19e] Count characters created in 1981 (Donkey Kong)
+int countCreated1981Dk = characters.Where(c => c.YearCreated == 1981 && c.Series.Contains("Donkey Kong")).Count();
+Console.WriteLine($"[1.19e] Count characters created in 1981 (Donkey Kong): {countCreated1981Dk}");
