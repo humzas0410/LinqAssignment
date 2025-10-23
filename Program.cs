@@ -273,10 +273,14 @@ Console.Clear();
 // Console.WriteLine($"[1.25c] Mario-series characters with species 'Koopa': {countMarioKoopa}");
 
 // [1.25d] List Mario-series characters with species 'Koopa' - return Name only.
-foreach (string? name in characters
-	.Where(c => c.Series.Contains("Mario") && c.Species == "Koopa")
-	.Select(c => c.Name)
-	.OrderBy(n => n))
-{
-	Console.WriteLine($"[1.25d] {name}");
-}
+// foreach (string? name in characters
+//     .Where(c => c.Series.Contains("Mario") && c.Species == "Koopa")
+//     .Select(c => c.Name)
+//     .OrderBy(n => n))
+// {
+//     Console.WriteLine($"[1.25d] {name}");
+// }
+
+// [1.25e] How many characters in the Mario series have species other than 'Human' or 'Koopa'?
+int countMarioOther = characters.Where(c => c.Series.Contains("Mario")).Count(c => c.Species != "Human" && c.Species != "Koopa");
+Console.WriteLine($"[1.25e] Mario-series characters with species other than 'Human'/'Koopa': {countMarioOther}");
