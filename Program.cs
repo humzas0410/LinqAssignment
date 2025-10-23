@@ -192,11 +192,15 @@ Console.Clear();
 // Console.WriteLine($"[1.21e] Characters with no alias (Mario): {countNoAliasMario}");
 
 // [1.21f] List the character(s) in the Mario series with no alias - return Name and Alias (or 'None').
-foreach (var obj in characters
-	.Where(c => c.Series.Contains("Mario") && (c.Alias == null || c.Alias.Count == 0))
-	.Select(c => new { c.Name, Alias = c.Alias })
-	.OrderBy(o => o.Name))
-{
-	string aliases = (obj.Alias == null || obj.Alias.Count == 0) ? "None" : string.Join(", ", obj.Alias);
-	Console.WriteLine($"[1.21f] {obj.Name} - Aliases: {aliases}");
-}
+// foreach (var obj in characters
+//     .Where(c => c.Series.Contains("Mario") && (c.Alias == null || c.Alias.Count == 0))
+//     .Select(c => new { c.Name, Alias = c.Alias })
+//     .OrderBy(o => o.Name))
+// {
+//     string aliases = (obj.Alias == null || obj.Alias.Count == 0) ? "None" : string.Join(", ", obj.Alias);
+//     Console.WriteLine($"[1.21f] {obj.Name} - Aliases: {aliases}");
+// }
+
+// [1.21g] Are there any character(s) with no alias in the Donkey Kong series?
+bool anyNoAliasDk = characters.Where(c => c.Series.Contains("Donkey Kong")).Any(c => c.Alias == null || c.Alias.Count == 0);
+Console.WriteLine($"[1.21g] Any characters with no alias (Donkey Kong): {anyNoAliasDk}");
