@@ -170,5 +170,15 @@ Console.Clear();
 // Console.WriteLine($"[1.21a] Any characters with no alias (all series): {anyNoAliasAll}");
 
 // [1.21b] How many character(s) have no alias (all series)?
-int countNoAliasAll = characters.Count(c => c.Alias == null || c.Alias.Count == 0);
-Console.WriteLine($"[1.21b] Characters with no alias (all series): {countNoAliasAll}");
+// int countNoAliasAll = characters.Count(c => c.Alias == null || c.Alias.Count == 0);
+// Console.WriteLine($"[1.21b] Characters with no alias (all series): {countNoAliasAll}");
+
+// [1.21c] List the character(s) with no alias (all series) - return name, alias (or 'None'), and series.
+foreach (var obj in characters
+	.Where(c => c.Alias == null || c.Alias.Count == 0)
+	.Select(c => new { c.Name, Alias = c.Alias, c.Series })
+	.OrderBy(o => o.Name))
+{
+	string aliases = (obj.Alias == null || obj.Alias.Count == 0) ? "None" : string.Join(", ", obj.Alias);
+	Console.WriteLine($"[1.21c] {obj.Name} - Aliases: {aliases} - Series: {string.Join(", ", obj.Series)}");
+}
