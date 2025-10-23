@@ -250,7 +250,11 @@ Console.Clear();
 // Console.WriteLine($"[1.24a] Characters with species 'Kremling': {countKremling}");
 
 // [1.24b] List characters with species 'Kremling' - return Name only.
-foreach (string? name in characters.Where(c => c.Species == "Kremling").Select(c => c.Name).OrderBy(n => n))
-{
-	Console.WriteLine($"[1.24b] {name}");
-}
+// foreach (string? name in characters.Where(c => c.Species == "Kremling").Select(c => c.Name).OrderBy(n => n))
+// {
+//     Console.WriteLine($"[1.24b] {name}");
+// }
+
+// [1.25a] How many characters in the Mario series have species 'Human'?
+int countMarioHuman = characters.Where(c => c.Series.Contains("Mario")).Count(c => c.Species == "Human");
+Console.WriteLine($"[1.25a] Mario-series characters with species 'Human': {countMarioHuman}");
