@@ -286,10 +286,19 @@ Console.Clear();
 // Console.WriteLine($"[1.25e] Mario-series characters with species other than 'Human'/'Koopa': {countMarioOther}");
 
 // [1.25f] List Mario-series characters with species other than 'Human' or 'Koopa' - return Name and Species.
+// foreach (var obj in characters
+//     .Where(c => c.Series.Contains("Mario") && c.Species != "Human" && c.Species != "Koopa")
+//     .Select(c => new { c.Name, c.Species })
+//     .OrderBy(o => o.Name))
+// {
+//     Console.WriteLine($"[1.25f] {obj.Name} - Species: {obj.Species}");
+// }
+
+// [1.26] List Donkey Kong series characters with species not 'Human' or 'Kong' - return Name and Species.
 foreach (var obj in characters
-	.Where(c => c.Series.Contains("Mario") && c.Species != "Human" && c.Species != "Koopa")
+	.Where(c => c.Series.Contains("Donkey Kong") && c.Species != "Human" && c.Species != "Kong")
 	.Select(c => new { c.Name, c.Species })
 	.OrderBy(o => o.Name))
 {
-	Console.WriteLine($"[1.25f] {obj.Name} - Species: {obj.Species}");
+	Console.WriteLine($"[1.26] {obj.Name} - Species: {obj.Species}");
 }
